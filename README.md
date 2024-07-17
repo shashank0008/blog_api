@@ -11,7 +11,7 @@ The Blog API is a web-based application that allows users to sign up, log in, cr
 - Pagination for efficient data retrieval
 - Unit tests to ensure application correctness
 
-## Technologies Used
+## Technologies Used:
 - Flask
 - SQLAlchemy
 - Flask-JWT-Extended
@@ -28,7 +28,7 @@ The Blog API is a web-based application that allows users to sign up, log in, cr
 ### Installation
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/blog_api.git
+    git clone https://github.com/shashank0008/blog_api.git
     cd blog_api
     ```
 
@@ -38,28 +38,41 @@ The Blog API is a web-based application that allows users to sign up, log in, cr
     source venv/bin/activate
     ```
 
-4. **Set up your environment variables:**
-    You can create a `.env` file in the project root and add the following variables:
+3. **Install dependencies:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+4. **Set up PostgreSQL:**
+    - Make sure PostgreSQL is installed and running.
+    - Create a PostgreSQL database and user:
+      ```sql
+      CREATE DATABASE blog_db;
+      CREATE USER yourusername WITH PASSWORD 'yourpassword';
+      GRANT ALL PRIVILEGES ON DATABASE blog_db TO yourusername;
+      ```
+
+5. **Set up your environment variables:**
+    You can create a `.env` file in the project root and add the following variables. Replace `your_secret_key`, `yourusername`, `yourpassword`, and `your_jwt_secret_key` with your actual values.
     ```bash
     SECRET_KEY=your_secret_key
-    DATABASE_URL=postgresql://blog_user:yourpassword@localhost:5432/blog_db
+    DATABASE_URL=postgresql://yourusername:yourpassword@localhost:5432/blog_db
     JWT_SECRET_KEY=your_jwt_secret_key
     ```
 
-5. **Initialize the database:**
+6. **Initialize the database:**
     ```bash
     flask db init
     flask db migrate -m "Initial migration."
     flask db upgrade
     ```
 
-6. **Run the application:**
+7. **Run the application:**
     ```bash
     python3 run.py
     ```
 
 ### Running Tests
 To run the unit tests, use the following command:
-    ```bash
-    python3 -m unittest discover -s app
-
+```bash
+python3 -m unittest discover -s app
