@@ -76,3 +76,22 @@ The Blog API is a web-based application that allows users to sign up, log in, cr
 To run the unit tests, use the following command:
 ```bash
 python3 -m unittest discover -s app
+
+### Manual API Hit Samples
+1. ** signup:
+curl -X POST -H "Content-Type: application/json" -d '{"email":"test@gmail.com","password":"test1234"}' http://127.0.0.1:5000/signup
+
+2. ** login:
+curl -X POST -H "Content-Type: application/json" -d '{"email":"test@gmail.com","password":"test1234"}' http://127.0.0.1:5000/login
+
+3. ** creat a blog post:
+curl -X POST \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMTI2ODIzMCwianRpIjoiZDVhN2NiNTItYjZiNS00ZWY5LTgyYmEtZDIzMWFkM2IwYjdkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzIxMjY4MjMwLCJjc3JmIjoiZDYzMjc3ZTEtZTBiYi00OGQzLWE5YjctYjEwOTdhOGYyNDQ2IiwiZXhwIjoxNzIxMjY5MTMwfQ.U1RTgiUkPT8oFep9X6SfOiKiKh97xH2SHzZf3ceuQgU" \
+-d '{"title":"My New Blog Post","body":"This is the content of my new blog post. It contains interesting information about a topic I care about."}' \
+http://127.0.0.1:5000/posts
+
+4. ** get all blog posts:
+curl -X GET \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyMTI2ODIzMCwianRpIjoiZDVhN2NiNTItYjZiNS00ZWY5LTgyYmEtZDIzMWFkM2IwYjdkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzIxMjY4MjMwLCJjc3JmIjoiZDYzMjc3ZTEtZTBiYi00OGQzLWE5YjctYjEwOTdhOGYyNDQ2IiwiZXhwIjoxNzIxMjY5MTMwfQ.U1RTgiUkPT8oFep9X6SfOiKiKh97xH2SHzZf3ceuQgU" \
+http://127.0.0.1:5000/posts
