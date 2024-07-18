@@ -11,7 +11,7 @@ The Blog API is a web-based application that allows users to sign up, log in, cr
 - Pagination for efficient data retrieval
 - Unit tests to ensure application correctness
 
-## Technologies Used:
+## Technologies Used
 - Flask
 - SQLAlchemy
 - Flask-JWT-Extended
@@ -74,10 +74,9 @@ The Blog API is a web-based application that allows users to sign up, log in, cr
 
 ### Running Tests
 To run the unit tests, use the following command:
-    ```bash
-    python3 -m unittest discover -s app
-    ```
-
+```bash
+python3 -m unittest discover -s app
+```
 ### Manual API Hit Samples
 1. **Signup:**
 curl -X POST -H "Content-Type: application/json" -d '{"email":"test@gmail.com","password":"test1234"}' http://127.0.0.1:5000/signup
